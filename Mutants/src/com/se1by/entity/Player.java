@@ -19,6 +19,7 @@ public class Player implements Creature{
 	private Animation animationRIGHT;
 	private Direction direction;
 	private float health;
+	private int score;
 	private float speed;
 	private float visibility;
 	private boolean walking;
@@ -33,6 +34,7 @@ public class Player implements Creature{
 		setAnimationLEFT(new Animation(Game.spritesheet, 3, 1, 5, 1, false, 100, true));
 		setDirection(Direction.UP);
 		setHealth(100);
+		setScore(0);
 		setSpeed(1.5f);
 		setVisibility(20*64f);
 		setPosition(new Vector2(1200, 3252));
@@ -130,6 +132,7 @@ public class Player implements Creature{
 				break;
 			}
 		}
+		
 	}
 
 	@Override
@@ -251,6 +254,17 @@ public class Player implements Creature{
 
 	public void setHealth(float health) {
 		this.health = health;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+	public void addScore(int toAdd) {
+		score += toAdd;
 	}
 
 	@Override

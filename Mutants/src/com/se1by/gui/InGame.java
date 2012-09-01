@@ -8,6 +8,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 
+import com.se1by.entity.Collision;
 import com.se1by.entity.Creature;
 import com.se1by.entity.Direction;
 import com.se1by.entity.Entity;
@@ -112,10 +113,6 @@ public class InGame {
 						creature.getPosition().getX() + creature.getSpeed()
 								* delta * 0.1f);
 			}
-			if (Float.parseFloat(result.replace("X", "").replace("&", "")
-					.replace("#", "")) <= 1) {
-				Game.player.setHealth(Game.player.getHealth() - 5);
-			}
 		} else if (result.contains("Y")) {
 			if (result.contains("&")) {
 				creature.getPosition().setY(
@@ -126,10 +123,9 @@ public class InGame {
 						creature.getPosition().getY() + creature.getSpeed()
 								* delta * 0.1f);
 			}
-			if (Float.parseFloat(result.replace("Y", "").replace("&", "")
-					.replace("#", "")) <= 1) {
-				Game.player.setHealth(Game.player.getHealth() - 0.5f * delta);
-			}
+		}
+		if(Collision.collides(creature, Game.player)){
+			Game.player.setHealth(Game.player.getHealth() - 0.5f * delta);
 		}
 	}
 

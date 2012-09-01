@@ -20,8 +20,9 @@ public class Projectile implements LivingEntity {
 	private Vector2 targetPosition;
 
 	public Projectile() {
-		setImage(Game.spritesheet.getSubImage(0, 5));
+		setImage(Game.spritesheet.getSubImage(0, 5*64, 8, 9));
 		setPosition(new Vector2(Game.player.getPosition(), 16));
+		position.setX(position.getX() + 16);
 		setSpeed(6f);
 		setDirection(Game.player.getDirection());
 		try {
@@ -60,10 +61,11 @@ public class Projectile implements LivingEntity {
 			if(!(e instanceof Creature)){
 				continue;
 			}
-			if(collidesWith(e)){
+			if(Collision.collides(this, e)){
 				Creature c = (Creature)e;
 				c.setHealth(c.getHealth() - 40);
 				InGame.removeEntity(e);
+				InGame.removeEntity(this);
 			}
 		}
 	}
