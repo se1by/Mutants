@@ -28,10 +28,10 @@ public class Player implements Creature{
 	boolean debug = false;
 	
 	public Player(){
-		setAnimationUP(new Animation(Game.spritesheet, 0, 0, 2, 0, false, 100, true));
-		setAnimationDOWN(new Animation(Game.spritesheet, 3, 0, 5, 0, false, 100, true));
-		setAnimationRIGHT(new Animation(Game.spritesheet, 0, 1, 2, 1, false, 100, true));
-		setAnimationLEFT(new Animation(Game.spritesheet, 3, 1, 5, 1, false, 100, true));
+		setAnimationUP(new Animation(Game.spritesheet, 0, 0, 2, 0, true, 100, true));
+		setAnimationDOWN(new Animation(Game.spritesheet, 3, 0, 5, 0, true, 100, true));
+		setAnimationRIGHT(new Animation(Game.spritesheet, 0, 1, 2, 1, true, 100, true));
+		setAnimationLEFT(new Animation(Game.spritesheet, 3, 1, 5, 1, true, 100, true));
 		setDirection(Direction.UP);
 		setHealth(100);
 		setScore(0);
@@ -118,8 +118,10 @@ public class Player implements Creature{
 			switch (getDirection()){
 			case UP:
 				g.drawAnimation(animationUP, getPosition().getX(), getPosition().getY());
+				System.out.println("UP");
 			case DOWN:
 				g.drawAnimation(animationDOWN, getPosition().getX(), getPosition().getY());
+				System.out.println("DOWN");
 				break;
 			case LEFT:
 				g.drawAnimation(animationLEFT, getPosition().getX(), getPosition().getY());
@@ -132,7 +134,9 @@ public class Player implements Creature{
 				break;
 			}
 		}
-		
+		String toWrite = "Health: " + health + "    Score: " + score;
+		int xSpacing = con.getWidth()/2 - toWrite.length()*16;
+		Game.font.write(toWrite, (int)getX() + xSpacing, (int)getY() - 300, g, 1f);
 	}
 
 	@Override

@@ -66,6 +66,8 @@ public class Projectile implements LivingEntity {
 				c.setHealth(c.getHealth() - 40);
 				InGame.removeEntity(e);
 				InGame.removeEntity(this);
+				Game.player.addScore(10);
+				System.out.println(Game.player.getHealth() + "   " + Game.player.getScore());
 			}
 		}
 	}

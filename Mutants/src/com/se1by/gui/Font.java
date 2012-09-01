@@ -22,7 +22,7 @@ public class Font {
     		int i = letters.indexOf(text.charAt(x));
     		int X = i*16;
     		int y = 0;
-    		if(i > 29){
+    		if(i >= 29){
     			X = (i-29)*16;
     			y = 16;
     		}
