@@ -247,10 +247,11 @@ public class InGame {
 				return Direction.LEFT;
 			}
 		} else {
-			if (yDiff >= 0) {
-				return Direction.DOWN;
-			} else {
+			System.out.println(yDiff);
+			if (yDiff < 0) {
 				return Direction.UP;
+			} else {
+				return Direction.DOWN;
 			}
 		}
 	}

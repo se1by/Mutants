@@ -41,7 +41,7 @@ public class Game extends BasicGame {
 	}
 
 	@Override
-	public void init(GameContainer con) throws SlickException {
+	public void init(GameContainer con) throws SlickException {		
 		state = GameState.MENU;
 		font = new Font();
 		spritesheet = new SpriteSheet("res/images/spritesheet.png", 64, 64);
@@ -68,6 +68,7 @@ public class Game extends BasicGame {
 		AppGameContainer container = new AppGameContainer(new Game());
 		container.setDisplayMode(800, 600, false);
 		container.setMinimumLogicUpdateInterval(25);
+		container.setIcon("res/images/icon32.png");
 		container.setVSync(true);
 		container.setShowFPS(false);
 		container.start();

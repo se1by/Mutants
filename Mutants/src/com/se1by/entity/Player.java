@@ -28,11 +28,11 @@ public class Player implements Creature{
 	boolean debug = false;
 	
 	public Player(){
-		setAnimationUP(new Animation(Game.spritesheet, 0, 0, 2, 0, true, 100, true));
-		setAnimationDOWN(new Animation(Game.spritesheet, 3, 0, 5, 0, true, 100, true));
+		setAnimationUP(new Animation(Game.spritesheet, 3, 0, 5, 0, true, 100, true));
+		setAnimationDOWN(new Animation(Game.spritesheet, 0, 0, 2, 0, true, 100, true));
 		setAnimationRIGHT(new Animation(Game.spritesheet, 0, 1, 2, 1, true, 100, true));
 		setAnimationLEFT(new Animation(Game.spritesheet, 3, 1, 5, 1, true, 100, true));
-		setDirection(Direction.UP);
+		setDirection(Direction.RIGHT);
 		setHealth(100);
 		setScore(0);
 		setSpeed(1.5f);
@@ -147,7 +147,7 @@ public class Player implements Creature{
 			setSpeed(3f);
 		}
 		
-		if (Game.player.getHealth() == 0) {
+		if (Game.player.getHealth() <= 0) {
 			Game.state = GameState.GAMEOVER;
 			return;
 		}
