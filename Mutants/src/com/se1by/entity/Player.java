@@ -82,6 +82,9 @@ public class Player implements Creature{
 	}
 
 	public void setDirection(Direction direction) {
+		if(direction.equals(Direction.DOWN)){
+			new Exception().printStackTrace();
+		}
 		this.direction = direction;
 	}
 
