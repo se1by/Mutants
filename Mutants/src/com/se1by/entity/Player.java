@@ -82,9 +82,6 @@ public class Player implements Creature{
 	}
 
 	public void setDirection(Direction direction) {
-		if(direction.equals(Direction.DOWN)){
-			new Exception().printStackTrace();
-		}
 		this.direction = direction;
 	}
 
@@ -121,10 +118,9 @@ public class Player implements Creature{
 			switch (getDirection()){
 			case UP:
 				g.drawAnimation(animationUP, getPosition().getX(), getPosition().getY());
-				System.out.println("UP");
+				break;
 			case DOWN:
 				g.drawAnimation(animationDOWN, getPosition().getX(), getPosition().getY());
-				System.out.println("DOWN");
 				break;
 			case LEFT:
 				g.drawAnimation(animationLEFT, getPosition().getX(), getPosition().getY());
